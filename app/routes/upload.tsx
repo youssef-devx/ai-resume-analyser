@@ -27,7 +27,6 @@ export default function Upload() {
         setStatusText("Converting to image");
 
         const imageFile = await convertPdfToImage(file)
-        console.log(imageFile)
         if (!imageFile.file) return setStatusText("Error: Failed to convert PDF to image");
         setStatusText("Uploading the image...");
 
@@ -38,12 +37,10 @@ export default function Upload() {
         const uuid = generateUUID()
         const data = {
             id: uuid,
-            companyName,
-            jobTitle,
-            jobDescription,
+            companyName, jobTitle, jobDescription,
             feedback: "",
             resumePath: uploadedFile.path,
-            imageFile: imageFile,
+            imagePath: uploadedImage.path
         }
 
         await kv.set(`resume:${uuid}`, JSON.stringify(data));
@@ -64,7 +61,8 @@ export default function Upload() {
 
         setStatusText("Analysis completed, redirecting...");
 
-        console.log(data)
+        // console.log(data)
+        navigate(`/resume/${uuid}`);
     }
 
     function handleSubmit(e: FormEvent<HTMLFormElement>) {
@@ -73,9 +71,9 @@ export default function Upload() {
 
         if (!form) return;
         const formData = new FormData(form);
-        const companyName = formData.get('companyName') as string;
-        const jobTitle = formData.get('jobTitle') as string;
-        const jobDescription = formData.get('jobDescription') as string;
+        const companyName = formData.get('company-name') as string;
+        const jobTitle = formData.get('job-title') as string;
+        const jobDescription = formData.get('job-description') as string;
 
         if (!file) return;
 

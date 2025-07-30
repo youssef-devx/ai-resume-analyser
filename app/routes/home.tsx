@@ -32,7 +32,7 @@ export default function Home() {
 
       {resumes.length > 0 && (
           <div className="resume-section">
-            {resumes.map(resume => <ResumeCard resume={resume}/>)}
+            {resumes.map(resume => <ResumeCard key={resume.id} resume={resume}/>)}
           </div>
       )}
     </section>

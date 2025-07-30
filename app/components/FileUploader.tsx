@@ -34,7 +34,7 @@ export default function FileUploader ({onFileSelect} : FileUploaderProps) {
                                     <p className="text-sm text-gray-500">{formatSize(file.size)}</p>
                                 </div>
                             </div>
-                            <button className="p-2 cursor-pointer border-2" onClick={(e) => onFileSelect?.(null)}>
+                            <button className="p-2 cursor-pointer" onClick={(e) => onFileSelect?.(null)}>
                                 <img src="/icons/cross.svg" alt="remove icon" className="w-4 h-4"/>
                             </button>
                         </div>
