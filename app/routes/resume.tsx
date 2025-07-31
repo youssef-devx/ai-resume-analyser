@@ -44,8 +44,6 @@ export default function Resume() {
             setImageUrl(imageUrl);
 
             setFeedback(data.feedback);
-
-            console.log(imageUrl, resumeUrl, feedback)
         }
 
         loadResume();

@@ -105,7 +105,7 @@ export default function Upload() {
                             </div>
                             <div className="form-div">
                                 <label htmlFor="job-description">Job Description</label>
-                                <input type="text" name="job-description" id="job-description" placeholder="Job Description" />
+                                <textarea rows={5} name="job-description" id="job-description" placeholder="Job Description" ></textarea>
                             </div>
                             <div className="form-div">
                                 <label htmlFor="Uploader">Upload Resume</label>
